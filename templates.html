@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Live Translator</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="badge">AI Live Translator</div>
+    <div class="caption">
+      <div id="orig" class="line small"></div>
+      <div id="tran" class="line big"></div>
+    </div>
+    <div class="footer">
+      <span>Share this window in Zoom/Meet. Press ⌘/Ctrl + to zoom text.</span>
+    </div>
+  </div>
+
+  <script>
+    const socket = io();
+    socket.on('caption', (data) => {
+      const orig = document.getElementById('orig');
+      const tran = document.getElementById('tran');
+      orig.textContent = data.original || '';
+      tran.textContent = data.translated || '';
+    });
+  </script>
+</body>
+</html>
