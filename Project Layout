@@ -1,0 +1,15 @@
+ai-live-translator/
+├── app/
+│   ├── __init__.py
+│   ├── main.py
+│   ├── audio_stream.py
+│   ├── transcriber.py
+│   ├── translator.py
+│   ├── server.py
+│   ├── config.py
+│   ├── templates/
+│   │   └── index.html
+│   └── static/
+│       └── styles.css
+├── requirements.txt
+└── README.md
